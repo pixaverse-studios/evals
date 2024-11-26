@@ -1,43 +1,38 @@
 package questions
 
+type eqGenerator struct{}
 
-type IqEval struct {
-	Question string
-	Options  []string
-	Answer   int
+func GetEQQuestions() QuestionGenerator {
+	return &eqGenerator{}
 }
 
-func GetIqEvalQuestions() []IqEval {
-	return []IqEval{
-		{
-			Question: "Which number should come next in the pattern? 2, 4, 8, 16, ...",
-			Options:  []string{"24", "32", "28", "20"},
-			Answer:   1, // 32
-		},
-		{
-			Question: "Complete the analogy: Book is to Reading as Fork is to:",
-			Options:  []string{"Drawing", "Writing", "Eating", "Walking"},
-			Answer:   2, // Eating
-		},
-		{
-			Question: "Which figure completes the pattern? [Visual Pattern Question]",
-			Options:  []string{"Square", "Circle", "Triangle", "Rectangle"},
-			Answer:   0, // Square
-		},
-		{
-			Question: "If all Zips are Zaps, and some Zaps are Zops, then:",
-			Options:  []string{
-				"All Zips are definitely Zops",
-				"Some Zips might be Zops",
-				"No Zips are Zops",
-				"All Zops are Zips",
-			},
-			Answer: 1, // Some Zips might be Zops
-		},
-		{
-			Question: "What number is missing? 7, 12, 19, 28, ?",
-			Options:  []string{"35", "39", "42", "45"},
-			Answer:   1, // 39
-		},
+func (g *eqGenerator) GenerateQuestions() []string {
+	questions := []string{
+		"I saw my mom smiling when dad told her, 'I love you.' Why does that make her happy?",
+		"My best friend didn't sit with me at lunch today. Does that mean they're upset with me?",
+		"I saw a kid crying because they dropped their ice cream. How can I help them feel better?",
+		"My brother gets mad when I use his toys without asking. Why does that make him angry?",
+		"When I shared my favorite snack, my friend said, 'Thank you!' Why did that make me feel good?",
+		"My teacher said sorry to me when she forgot my name. Why is saying sorry important?",
+		"I saw a kid at school sitting alone during recess. Do you think they might feel lonely?",
+		"A kid in my class always makes fun of me. Why are they being mean to me?",
+		"My grandma hugs me really tight whenever I visit her. Why does hugging show love?",
+		"I was scared to go on stage, but my dad said, 'You're brave!' What does being brave mean?",
+		"I saw two people getting married in a park. Why do people get married?",
+		"My little sister hides under her blanket when it's dark. Why is she afraid at night?",
+		"We had a big party for my birthday last week. Why do birthdays make people so happy?",
+		"My friend looked sad when I didn't invite them to play. How can I make it up to them?",
+		"I feel butterflies in my stomach before a big test. What should I do to feel better?",
+		"I gave my teacher a drawing, and she said, 'This is beautiful!' Why does saying nice things matter?",
+		"I saw a kid getting teased on the playground. What should I do to help them?",
+		"My friend told me a big secret. Why do people share their secrets with someone they trust?",
+		"When I broke my friend's toy, they didn't talk to me. How can I make things right?",
+		"I saw a bird with a broken wing, and it made me feel sad. Why is it important to care for animals?",
+		"My friend started laughing when they tripped. Why do people laugh when they're embarrassed?",
+		"I'm really shy and want to make new friends. How can I do that?",
+		"I saw my mom cry when she watched a happy movie. Why do people cry when they're happy?",
+		"Why are ghosts in movies always scary? Are all ghosts bad?",
+		"My brother broke my toy and said sorry, but I'm still upset. What does it mean to forgive him?",
 	}
+	return questions
 }
