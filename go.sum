@@ -1,3 +1,5 @@
+github.com/alecthomas/kong v1.4.0 h1:UL7tzGMnnY0YRMMvJyITIRX1EpO6RbBRZDNcCevy3HA=
+github.com/alecthomas/kong v1.4.0/go.mod h1:p2vqieVMeTAnaC83txKtXe8FLke2X07aruPWXyMPQrU=
 github.com/anthropics/anthropic-sdk-go v0.2.0-alpha.4 h1:TdGQS+RoR4AUO6gqUL74yK1dz/Arrt/WG+dxOj6Yo6A=
 github.com/anthropics/anthropic-sdk-go v0.2.0-alpha.4/go.mod h1:GJxtdOs9K4neo8Gg65CjJ7jNautmldGli5/OFNabOoo=
 github.com/liushuangls/go-anthropic/v2 v2.11.0 h1:YKyxDWQNaKPPgtLCgBH+JqzuznNWw8ZqQVeSdQNDMds=
