@@ -13,7 +13,8 @@ type ClaudeHandler struct {
 	client *anthropic.Client
 }
 
-func NewClaudeHandler() *ClaudeHandler {
+// NewClaudeHandler creates a new Claude handler that implements QuestionProcessor
+func NewClaudeHandler() QuestionProcessor {
 	apiKey := os.Getenv("CLAUDE_API_KEY")
 	client := anthropic.NewClient(apiKey)
 	return &ClaudeHandler{
@@ -21,6 +22,7 @@ func NewClaudeHandler() *ClaudeHandler {
 	}
 }
 
+// ProcessQuestions implements the QuestionProcessor interface
 func (h *ClaudeHandler) ProcessQuestions(questions []string) ([]string, error) {
 	var responses []string
 

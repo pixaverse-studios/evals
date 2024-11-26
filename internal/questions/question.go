@@ -27,6 +27,22 @@ func (qt QuestionType) String() string {
 	}
 }
 
+// FromString converts a string to QuestionType
+func FromString(s string) QuestionType {
+	switch s {
+	case "EQ":
+		return EQ
+	case "IQ":
+		return IQ
+	case "Learning":
+		return Learning
+	case "Safety":
+		return Safety
+	default:
+		return QuestionType(-1) // Invalid question type
+	}
+}
+
 type QuestionGenerator interface {
 	GenerateQuestions() []string
 }
