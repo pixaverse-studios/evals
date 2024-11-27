@@ -35,7 +35,6 @@ func Engine(
 func (c *Client) evaluate(qt questions.QuestionType) (score1 string, score2 string, msg string, err error) {
 	ques := questions.QuestionGenerators[qt].GenerateQuestions()
 
-	// Get responses from both models
 	responses1, err := models.Models[c.model1].ProcessQuestions(ques)
 	if err != nil {
 		return "", "", "", fmt.Errorf("error processing questions with model 1: %w", err)
