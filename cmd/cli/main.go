@@ -5,6 +5,7 @@ import (
 	"evals/pkg/eval"
 	"fmt"
 	"github.com/alecthomas/kong"
+	"github.com/joho/godotenv"
 	"os"
 )
 
@@ -84,6 +85,11 @@ func (r *SafetyCmd) Run() error {
 }
 
 func main() {
+	err := godotenv.Load()
+	if err != nil {
+		fmt.Printf("Warning: Error loading .env file: %v\n", err)
+	}
+
 	ctx := kong.Parse(&CLI,
 		kong.Name("evals"),
 		kong.Description("A CLI tool for evaluating and comparing AI models"),
@@ -92,7 +98,7 @@ func main() {
 			Compact: true,
 			Summary: true,
 		}))
-	err := ctx.Run()
+	err = ctx.Run()
 	if err != nil {
 		fmt.Printf("Error: %v\n", err)
 		os.Exit(1)
