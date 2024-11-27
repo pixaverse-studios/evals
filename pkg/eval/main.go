@@ -50,6 +50,7 @@ func (c *Client) evaluate(qt questions.QuestionType) (score1 string, score2 stri
 	ans2 := strings.Join(responses2, "\n")
     
 	evaluator := models.NewEvalHandler()
+	evaluator.SetContext(qt, c.childData.Name, c.childData.Age, c.childData.Interests, c.childData.Goals)
 
 	return evaluator.Benchmark(ans1, ans2)
 }

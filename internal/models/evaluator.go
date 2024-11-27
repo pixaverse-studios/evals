@@ -40,7 +40,7 @@ func (h *EvalHandler) Benchmark(ans1 string, ans2 string) (score1 string, score2
 	resp, err := h.client.CreateChatCompletion(
 		context.Background(),
 		openai.ChatCompletionRequest{
-			Model: openai.GPT3Dot5Turbo,
+			Model: openai.O1Preview,
 			Messages: []openai.ChatCompletionMessage{
 				{
 					Role: openai.ChatMessageRoleSystem,
