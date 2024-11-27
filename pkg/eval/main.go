@@ -7,18 +7,28 @@ import (
 	"strings"
 )
 
+type ChildData struct {
+	Name      string
+	Age       string
+	Interests string
+	Goals     string
+}
+
 type Client struct {
-	model1 models.ModelType
-	model2 models.ModelType
+	model1    models.ModelType
+	model2    models.ModelType
+	childData ChildData
 }
 
 func Engine(
 	modelOne models.ModelType,
 	modelTwo models.ModelType,
+	childData ChildData,
 ) *Client {
 	return &Client{
-		model1: modelOne,
-		model2: modelTwo,
+		model1:    modelOne,
+		model2:    modelTwo,
+		childData: childData,
 	}
 }
 

@@ -2,7 +2,7 @@ package prompt
 
 import "fmt"
 
-func GetEQPrompt(childName, childAge, interests, goals, familyInfo string) string {
+func GetEQPrompt(childName, childAge, interests, goals string) string {
 	if childName == "" {
 		childName = "[Child's name]"
 	}
@@ -14,9 +14,6 @@ func GetEQPrompt(childName, childAge, interests, goals, familyInfo string) strin
 	}
 	if goals == "" {
 		goals = "[Child's learning goals]"
-	}
-	if familyInfo == "" {
-		familyInfo = "[Family information]"
 	}
 
 	return fmt.Sprintf(`You are a Response Evaluation AI specializing in analyzing and scoring interactions between AI companions and children aged 5-12 years old. Your task is to evaluate the responses provided by two different AI models based on their ability to demonstrate emotional intelligence (EQ), clarity, and child-friendliness.
@@ -40,7 +37,6 @@ Name: %s
 Age: %s
 Interests: [%s]
 Learning Goals: [%s]
-Social Context: %s
 
 Each response must consider these details to ensure that the conversation resonates with the child.
 
@@ -169,5 +165,5 @@ Common Mistakes to Avoid
 Dismissive Responses: Ignoring or trivializing the child's feelings (e.g., "It's not a big deal").
 Overloading: Giving too much information or complex explanations.
 Flat Tone: Failing to engage the child with warmth and enthusiasm.
-Unsafe Suggestions: Offering advice that might encourage risky behavior or avoid parental involvement.`, childName, childAge, interests, goals, familyInfo)
+Unsafe Suggestions: Offering advice that might encourage risky behavior or avoid parental involvement.`, childName, childAge, interests, goals)
 }

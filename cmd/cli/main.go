@@ -17,29 +17,51 @@ var CLI struct {
 }
 
 type IQCmd struct {
-	Model1 string `help:"First model to evaluate" required:""`
-	Model2 string `help:"Second model to evaluate" required:""`
+	Model1    string `help:"First model to evaluate" required:""`
+	Model2    string `help:"Second model to evaluate" required:""`
+	Name      string `help:"Child's name"`
+	Age       string `help:"Child's age"`
+	Interests string `help:"Child's interests"`
+	Goals     string `help:"Child's learning goals"`
 }
 
 type EQCmd struct {
-	Model1 string `help:"First model to evaluate" required:""`
-	Model2 string `help:"Second model to evaluate" required:""`
+	Model1    string `help:"First model to evaluate" required:""`
+	Model2    string `help:"Second model to evaluate" required:""`
+	Name      string `help:"Child's name"`
+	Age       string `help:"Child's age"`
+	Interests string `help:"Child's interests"`
+	Goals     string `help:"Child's learning goals"`
 }
 
 type LearningCmd struct {
-	Model1 string `help:"First model to evaluate" required:""`
-	Model2 string `help:"Second model to evaluate" required:""`
+	Model1    string `help:"First model to evaluate" required:""`
+	Model2    string `help:"Second model to evaluate" required:""`
+	Name      string `help:"Child's name"`
+	Age       string `help:"Child's age"`
+	Interests string `help:"Child's interests"`
+	Goals     string `help:"Child's learning goals"`
 }
 
 type SafetyCmd struct {
-	Model1 string `help:"First model to evaluate" required:""`
-	Model2 string `help:"Second model to evaluate" required:""`
+	Model1    string `help:"First model to evaluate" required:""`
+	Model2    string `help:"Second model to evaluate" required:""`
+	Name      string `help:"Child's name"`
+	Age       string `help:"Child's age"`
+	Interests string `help:"Child's interests"`
+	Goals     string `help:"Child's learning goals"`
 }
 
 func (r *IQCmd) Run() error {
 	model1 := models.FromString(r.Model1)
 	model2 := models.FromString(r.Model2)
-	client := eval.Engine(model1, model2)
+	childData := eval.ChildData{
+		Name:      r.Name,
+		Age:       r.Age,
+		Interests: r.Interests,
+		Goals:     r.Goals,
+	}
+	client := eval.Engine(model1, model2, childData)
 	score1, score2, msg, err := client.EvaluateIqBenchmarks()
 	if err != nil {
 		return err
@@ -51,7 +73,13 @@ func (r *IQCmd) Run() error {
 func (r *EQCmd) Run() error {
 	model1 := models.FromString(r.Model1)
 	model2 := models.FromString(r.Model2)
-	client := eval.Engine(model1, model2)
+	childData := eval.ChildData{
+		Name:      r.Name,
+		Age:       r.Age,
+		Interests: r.Interests,
+		Goals:     r.Goals,
+	}
+	client := eval.Engine(model1, model2, childData)
 	score1, score2, msg, err := client.EvaluateEqBenchmarks()
 	if err != nil {
 		return err
@@ -63,7 +91,13 @@ func (r *EQCmd) Run() error {
 func (r *LearningCmd) Run() error {
 	model1 := models.FromString(r.Model1)
 	model2 := models.FromString(r.Model2)
-	client := eval.Engine(model1, model2)
+	childData := eval.ChildData{
+		Name:      r.Name,
+		Age:       r.Age,
+		Interests: r.Interests,
+		Goals:     r.Goals,
+	}
+	client := eval.Engine(model1, model2, childData)
 	score1, score2, msg, err := client.EvaluateLearningBenchmarks()
 	if err != nil {
 		return err
@@ -75,7 +109,13 @@ func (r *LearningCmd) Run() error {
 func (r *SafetyCmd) Run() error {
 	model1 := models.FromString(r.Model1)
 	model2 := models.FromString(r.Model2)
-	client := eval.Engine(model1, model2)
+	childData := eval.ChildData{
+		Name:      r.Name,
+		Age:       r.Age,
+		Interests: r.Interests,
+		Goals:     r.Goals,
+	}
+	client := eval.Engine(model1, model2, childData)
 	score1, score2, msg, err := client.EvaluateSafetyBenchmarks()
 	if err != nil {
 		return err
