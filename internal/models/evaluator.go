@@ -4,20 +4,39 @@ import (
 	"context"
 	"fmt"
 	"os"
+	"evals/internal/questions"
+	"evals/internal/prompts"
 	"github.com/sashabaranov/go-openai"
 )
 
 type EvalHandler struct {
 	client *openai.Client
+	questionType questions.QuestionType
+	childName string
+	childAge string 
+	interests string
+	goals string
 }
 
-func NewEvalHandler() *OpenAIHandler {
+func NewEvalHandler() *EvalHandler {
 	apiKey := os.Getenv("OPENAI_API_KEY")
-	return &OpenAIHandler{
+	return &EvalHandler{
 		client: openai.NewClient(apiKey),
 	}
 }
-func (h *OpenAIHandler) Benchmark(ans1 string, ans2 string) (score1 string, score2 string, msg string, err error) {
+
+func (h *EvalHandler) SetContext(qt questions.QuestionType, name, age, interests, goals string) {
+	h.questionType = qt
+	h.childName = name
+	h.childAge = age
+	h.interests = interests 
+	h.goals = goals
+}
+
+func (h *EvalHandler) Benchmark(ans1 string, ans2 string) (score1 string, score2 string, msg string, err error) {
+	// Get evaluation prompt based on question type and context
+	evalPrompt := prompt.GetPrompt(h.questionType, h.childName, h.childAge, h.interests, h.goals)
+
 	resp, err := h.client.CreateChatCompletion(
 		context.Background(),
 		openai.ChatCompletionRequest{
@@ -25,8 +44,7 @@ func (h *OpenAIHandler) Benchmark(ans1 string, ans2 string) (score1 string, scor
 			Messages: []openai.ChatCompletionMessage{
 				{
 					Role: openai.ChatMessageRoleSystem,
-					Content: "You are an AI evaluator. Compare two AI responses and rate them on a scale of 1-10. " +
-						"Provide scores and brief explanation focusing on clarity, accuracy and helpfulness.",
+					Content: evalPrompt,
 				},
 				{
 					Role:    openai.ChatMessageRoleUser,
