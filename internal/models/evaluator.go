@@ -69,3 +69,4 @@ func (h *EvalHandler) Benchmark(ans1 string, ans2 string) (score1 string, score2
 
 	return fmt.Sprintf("%.1f", s1), fmt.Sprintf("%.1f", s2), evaluation, nil
 }
+	
