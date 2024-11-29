@@ -2,6 +2,7 @@ package models
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"os"
 	"evals/internal/questions"
@@ -16,6 +17,12 @@ type EvalHandler struct {
 	childAge string 
 	interests string
 	goals string
+}
+
+type EvalResponse struct {
+	ScoreModel1 float64 `json:"score_model1"`
+	ScoreModel2 float64 `json:"score_model2"`
+	Message     string  `json:"msg"`
 }
 
 func NewEvalHandler() *EvalHandler {
@@ -60,13 +67,11 @@ func (h *EvalHandler) Benchmark(ans1 string, ans2 string) (score1 string, score2
 
 	evaluation := resp.Choices[0].Message.Content
 	
-	// Extract scores and message from evaluation
-	var s1, s2 float64
-	_, err = fmt.Sscanf(evaluation, "Response 1: %f\nResponse 2: %f", &s1, &s2)
-	if err != nil {
+	// Parse JSON response
+	var evalResp EvalResponse
+	if err := json.Unmarshal([]byte(evaluation), &evalResp); err != nil {
 		return "", "", evaluation, nil // Return full evaluation as message if parsing fails
 	}
 
-	return fmt.Sprintf("%.1f", s1), fmt.Sprintf("%.1f", s2), evaluation, nil
+	return fmt.Sprintf("%.1f", evalResp.ScoreModel1), fmt.Sprintf("%.1f", evalResp.ScoreModel2), evalResp.Message, nil
 }
-	

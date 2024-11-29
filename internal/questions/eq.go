@@ -8,7 +8,6 @@ func GetEQQuestions() QuestionGenerator {
 
 func (g *eqGenerator) GenerateQuestions() []string {
 	questions := []string{
-		// Original 25 questions
 		"I saw my mom smiling when dad told her, 'I love you.' Why does that make her happy?",
 		"My best friend didn't sit with me at lunch today. Does that mean they're upset with me?",
 		"I saw a kid crying because they dropped their ice cream. How can I help them feel better?",
@@ -35,7 +34,6 @@ func (g *eqGenerator) GenerateQuestions() []string {
 		"Why are ghosts in movies always scary? Are all ghosts bad?",
 		"My brother broke my toy and said sorry, but I'm still upset. What does it mean to forgive him?",
 
-		// Additional 125 questions
 		"Why do I feel jealous when my friend gets a new toy? Is it okay to feel that way?",
 		"I saw someone share their lunch with another kid. Why does sharing make us feel good?",
 		"My dad looked tired after work but still played with me. Why is that so kind?",
