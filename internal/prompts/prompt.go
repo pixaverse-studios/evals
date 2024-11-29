@@ -5,10 +5,11 @@ import "evals/internal/questions"
 
 // PromptMap maps QuestionType to corresponding prompt generation functions
 var PromptMap = map[questions.QuestionType]func(string, string, string, string) string{
-	questions.EQ:       GetEQPrompt,
-	questions.IQ:       GetIQPrompt,
-	questions.Learning: GetLearningPrompt,
-	questions.Safety:   GetSafetyPrompt,
+	questions.EQ:        GetEQPrompt,
+	questions.IQ:        GetIQPrompt,
+	questions.Learning:  GetLearningPrompt,
+	questions.Safety:    GetSafetyPrompt,
+	questions.Curiosity: GetCuriosityPrompt,
 }
 
 // GetPrompt returns the appropriate prompt based on question type
