@@ -5,6 +5,8 @@ import (
 	"evals/internal/questions"
 	"fmt"
 	"strings"
+
+	"github.com/joho/godotenv"
 )
 
 type ChildData struct {
@@ -25,6 +27,10 @@ func Engine(
 	modelTwo models.ModelType,
 	childData ChildData,
 ) *Client {
+	err := godotenv.Load()
+	if err != nil {
+		fmt.Printf("Warning: Error loading .env file: %v\n", err)
+	}
 	return &Client{
 		model1:    modelOne,
 		model2:    modelTwo,

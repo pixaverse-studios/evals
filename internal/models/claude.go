@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/joho/godotenv"
 	"github.com/liushuangls/go-anthropic/v2"
 )
 
@@ -15,6 +16,10 @@ type ClaudeHandler struct {
 
 // NewClaudeHandler creates a new Claude handler that implements QuestionProcessor
 func NewClaudeHandler() QuestionProcessor {
+	err := godotenv.Load()
+	if err != nil {
+		fmt.Printf("Warning: Error loading .env file: %v\n", err)
+	}
 	apiKey := os.Getenv("CLAUDE_API_KEY")
 	client := anthropic.NewClient(apiKey)
 	return &ClaudeHandler{
@@ -22,13 +27,15 @@ func NewClaudeHandler() QuestionProcessor {
 	}
 }
 
-// ProcessQuestions implements the QuestionProcessor interface
 func (h *ClaudeHandler) ProcessQuestions(questions []string) ([]string, error) {
 	var responses []string
 
-	for _, question := range questions {
+	fmt.Printf("🌟 Starting to process %d questions!\n", len(questions))
+
+	for v, question := range questions {
+		fmt.Printf("📝 Processing question %d of %d: %s\n", v+1, len(questions), question)
 		resp, err := h.client.CreateMessages(context.Background(), anthropic.MessagesRequest{
-			Model: anthropic.ModelClaude3Haiku20240307,
+			Model: anthropic.ModelClaude3Dot5Sonnet20241022,//claude-3-5-sonnet-20241022
 			MaxTokens: 300,
 			System: "You are a friendly AI assistant helping children. Keep answers simple, age-appropriate, and encouraging.",
 			Messages: []anthropic.Message{
@@ -50,6 +57,8 @@ func (h *ClaudeHandler) ProcessQuestions(questions []string) ([]string, error) {
 		)
 		responses = append(responses, response)
 	}
+
+	fmt.Printf("✨ Successfully answered all %d questions!\n", len(questions))
 
 	return responses, nil
 }

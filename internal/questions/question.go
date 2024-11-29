@@ -1,7 +1,5 @@
 package questions
 
-
-
 type QuestionType int
 
 const (
@@ -9,6 +7,7 @@ const (
 	IQ                     // Intelligence questions
 	Learning               // Learning-focused questions  
 	Safety                 // Safety-related questions
+	Curiosity              // Curiosity-focused questions
 )
 
 // String returns the string representation of QuestionType
@@ -22,6 +21,8 @@ func (qt QuestionType) String() string {
 		return "Learning"
 	case Safety:
 		return "Safety"
+	case Curiosity:
+		return "Curiosity"
 	default:
 		return "Unknown"
 	}
@@ -38,6 +39,8 @@ func FromString(s string) QuestionType {
 		return Learning
 	case "Safety":
 		return Safety
+	case "Curiosity":
+		return Curiosity
 	default:
 		return QuestionType(-1) // Invalid question type
 	}
@@ -48,11 +51,9 @@ type QuestionGenerator interface {
 }
 
 var QuestionGenerators = map[QuestionType]QuestionGenerator{
-	EQ:       GetEngagementQuestions(),
-	IQ:       NewIQGenerator(), 
-	Learning: NewLearningGenerator(),
-	Safety:   NewSafetyGenerator(),
+	EQ:        NewEQGenerator(),
+	IQ:        NewIQGenerator(), 
+	Learning:  NewLearningGenerator(),
+	Safety:    NewSafetyGenerator(),
+	Curiosity: GetEngagementQuestions(),
 }
-
-
-

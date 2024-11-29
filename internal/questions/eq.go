@@ -2,7 +2,7 @@ package questions
 
 type eqGenerator struct{}
 
-func GetEQQuestions() QuestionGenerator {
+func NewEQGenerator() QuestionGenerator {
 	return &eqGenerator{}
 }
 

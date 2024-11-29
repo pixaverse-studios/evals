@@ -17,8 +17,8 @@ var CLI struct {
 }
 
 type IQCmd struct {
-	Model1    string `help:"First model to evaluate" required:""`
-	Model2    string `help:"Second model to evaluate" required:""`
+	Model1    string `help:"First model to evaluate (default: OpenAI)" default:"OpenAI"`
+	Model2    string `help:"Second model to evaluate (default: Claude)" default:"Claude"`
 	Name      string `help:"Child's name"`
 	Age       string `help:"Child's age"`
 	Interests string `help:"Child's interests"`
@@ -26,8 +26,8 @@ type IQCmd struct {
 }
 
 type EQCmd struct {
-	Model1    string `help:"First model to evaluate" required:""`
-	Model2    string `help:"Second model to evaluate" required:""`
+	Model1    string `help:"First model to evaluate (default: OpenAI)" default:"OpenAI"`
+	Model2    string `help:"Second model to evaluate (default: Claude)" default:"Claude"`
 	Name      string `help:"Child's name"`
 	Age       string `help:"Child's age"`
 	Interests string `help:"Child's interests"`
@@ -35,8 +35,8 @@ type EQCmd struct {
 }
 
 type LearningCmd struct {
-	Model1    string `help:"First model to evaluate" required:""`
-	Model2    string `help:"Second model to evaluate" required:""`
+	Model1    string `help:"First model to evaluate (default: OpenAI)" default:"OpenAI"`
+	Model2    string `help:"Second model to evaluate (default: Claude)" default:"Claude"`
 	Name      string `help:"Child's name"`
 	Age       string `help:"Child's age"`
 	Interests string `help:"Child's interests"`
@@ -44,8 +44,8 @@ type LearningCmd struct {
 }
 
 type SafetyCmd struct {
-	Model1    string `help:"First model to evaluate" required:""`
-	Model2    string `help:"Second model to evaluate" required:""`
+	Model1    string `help:"First model to evaluate (default: OpenAI)" default:"OpenAI"`
+	Model2    string `help:"Second model to evaluate (default: Claude)" default:"Claude"`
 	Name      string `help:"Child's name"`
 	Age       string `help:"Child's age"`
 	Interests string `help:"Child's interests"`
