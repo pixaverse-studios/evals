@@ -146,12 +146,10 @@ Frame questions to make the child feel like a problem-solver or discoverer.
 
 Handling Wrong Answers:  
 
-
 Respond with encouragement: "That’s a good guess! Let’s think about it another way."  
 Guide the child towards the correct answer with subtle hints or examples.  
 
 Balancing Challenge and Fun:  
-
 
 Avoid questions or explanations that are too easy or overly challenging.  
 Add playful elements to even simple problems to maintain engagement.  

@@ -7,7 +7,6 @@ import (
 	"evals/internal/questions"
 	"fmt"
 	"os"
-
 	"github.com/joho/godotenv"
 	"github.com/sashabaranov/go-openai"
 )
@@ -51,14 +50,14 @@ func (h *EvalHandler) Benchmark(ans1 string, ans2 string) (score1 string, score2
 
 	// Get evaluation prompt based on question type and context
 	evalPrompt := prompt.GetPrompt(h.questionType, h.childName, h.childAge, h.interests, h.goals)
-
+    fmt.Print(evalPrompt)
 	// Combine system prompt and responses into one message
 	fullPrompt := fmt.Sprintf("%s\n\nResponse 1:\n%s\n\nResponse 2:\n%s\n\nCompare and rate these responses.", evalPrompt, ans1, ans2)
 
 	resp, err := h.client.CreateChatCompletion(
 		context.Background(),
 		openai.ChatCompletionRequest{
-			Model: openai.O1Preview,
+			Model: openai.O1Preview20240912,
 			Messages: []openai.ChatCompletionMessage{
 				{
 					Role:    openai.ChatMessageRoleUser,
@@ -72,15 +71,18 @@ func (h *EvalHandler) Benchmark(ans1 string, ans2 string) (score1 string, score2
 		fmt.Printf("❌ Error during evaluation: %v\n", err)
 		return "", "", "", fmt.Errorf("error getting completion: %v", err)
 	}
-
+    
 	evaluation := resp.Choices[0].Message.Content
+
+	fmt.Print(evaluation)
 	
-	// Parse JSON response
 	var evalResp EvalResponse
 	if err := json.Unmarshal([]byte(evaluation), &evalResp); err != nil {
 		fmt.Printf("⚠️ Warning: Could not parse JSON response, returning raw evaluation\n")
 		return "", "", evaluation, nil // Return full evaluation as message if parsing fails
 	}
+
+
 
 	fmt.Printf("✨ Evaluation complete! Scores - Model 1: %.1f, Model 2: %.1f\n", evalResp.ScoreModel1, evalResp.ScoreModel2)
 

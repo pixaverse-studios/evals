@@ -55,10 +55,13 @@ func (h *ClaudeHandler) ProcessQuestions(questions []string) ([]string, error) {
 			question,
 			resp.Content[0].GetText(),
 		)
+		fmt.Printf("🤖 %s\n", response)
 		responses = append(responses, response)
 	}
 
 	fmt.Printf("✨ Successfully answered all %d questions!\n", len(questions))
+
+
 
 	return responses, nil
 }

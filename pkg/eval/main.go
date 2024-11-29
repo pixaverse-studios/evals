@@ -75,3 +75,7 @@ func (c *Client) EvaluateLearningBenchmarks() (score1 string, score2 string, msg
 func (c *Client) EvaluateSafetyBenchmarks() (score1 string, score2 string, msg string, err error) {
 	return c.evaluate(questions.Safety)
 }
+
+func (c *Client) EvaluateCuriosityBenchmarks() (score1 string, score2 string, msg string, err error) {
+	return c.evaluate(questions.Curiosity)
+}

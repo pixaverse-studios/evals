@@ -35,7 +35,8 @@ func (h *OpenAIHandler) ProcessQuestions(questions []string) ([]string, error) {
 		resp, err := h.client.CreateChatCompletion(
 			context.Background(),
 			openai.ChatCompletionRequest{
-				Model: openai.GPT4o,
+				Model: openai.GPT4oMini,
+				MaxTokens: 300,
 				Messages: []openai.ChatCompletionMessage{
 					{
 						Role: openai.ChatMessageRoleSystem,
@@ -59,9 +60,13 @@ func (h *OpenAIHandler) ProcessQuestions(questions []string) ([]string, error) {
 			resp.Choices[0].Message.Content,
 		)
 		responses = append(responses, response)
+		fmt.Printf("🤖 %s\n", response)
+
 	}
 
 	fmt.Printf("✨ Successfully answered all %d questions!\n", len(questions))
+
+	fmt.Print(responses)
 
 	return responses, nil
 }
