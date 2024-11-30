@@ -18,8 +18,7 @@ var CLI struct {
 }
 
 type IQCmd struct {
-	Model1    string `help:"First model to evaluate (default: OpenAI)" default:"OpenAI"`
-	Model2    string `help:"Second model to evaluate (default: Claude)" default:"Claude"`
+	Model     string `help:"Model to evaluate (default: OpenAI)" default:"OpenAI"`
 	Name      string `help:"Child's name"`
 	Age       string `help:"Child's age"`
 	Interests string `help:"Child's interests"`
@@ -27,8 +26,7 @@ type IQCmd struct {
 }
 
 type EQCmd struct {
-	Model1    string `help:"First model to evaluate (default: OpenAI)" default:"OpenAI"`
-	Model2    string `help:"Second model to evaluate (default: Claude)" default:"Claude"`
+	Model     string `help:"Model to evaluate (default: OpenAI)" default:"OpenAI"`
 	Name      string `help:"Child's name"`
 	Age       string `help:"Child's age"`
 	Interests string `help:"Child's interests"`
@@ -36,8 +34,7 @@ type EQCmd struct {
 }
 
 type LearningCmd struct {
-	Model1    string `help:"First model to evaluate (default: OpenAI)" default:"OpenAI"`
-	Model2    string `help:"Second model to evaluate (default: Claude)" default:"Claude"`
+	Model     string `help:"Model to evaluate (default: OpenAI)" default:"OpenAI"`
 	Name      string `help:"Child's name"`
 	Age       string `help:"Child's age"`
 	Interests string `help:"Child's interests"`
@@ -45,8 +42,7 @@ type LearningCmd struct {
 }
 
 type SafetyCmd struct {
-	Model1    string `help:"First model to evaluate (default: OpenAI)" default:"OpenAI"`
-	Model2    string `help:"Second model to evaluate (default: Claude)" default:"Claude"`
+	Model     string `help:"Model to evaluate (default: OpenAI)" default:"OpenAI"`
 	Name      string `help:"Child's name"`
 	Age       string `help:"Child's age"`
 	Interests string `help:"Child's interests"`
@@ -54,8 +50,7 @@ type SafetyCmd struct {
 }
 
 type CuriosityCmd struct {
-	Model1    string `help:"First model to evaluate (default: OpenAI)" default:"OpenAI"`
-	Model2    string `help:"Second model to evaluate (default: Claude)" default:"Claude"`
+	Model     string `help:"Model to evaluate (default: OpenAI)" default:"OpenAI"`
 	Name      string `help:"Child's name"`
 	Age       string `help:"Child's age"`
 	Interests string `help:"Child's interests"`
@@ -63,92 +58,87 @@ type CuriosityCmd struct {
 }
 
 func (r *IQCmd) Run() error {
-	model1 := models.FromString(r.Model1)
-	model2 := models.FromString(r.Model2)
+	model := models.FromString(r.Model)
 	childData := eval.ChildData{
 		Name:      r.Name,
 		Age:       r.Age,
 		Interests: r.Interests,
 		Goals:     r.Goals,
 	}
-	client := eval.Engine(model1, model2, childData)
-	score1, score2, msg, err := client.EvaluateIqBenchmarks()
+	client := eval.Engine(model, childData)
+	score, msg, err := client.EvaluateIqBenchmarks()
 	if err != nil {
 		return err
 	}
-	fmt.Printf("Model 1 Score: %s\nModel 2 Score: %s\nMessage: %s\n", score1, score2, msg)
+	fmt.Printf("Score: %s\nMessage: %s\n", score, msg)
 	return nil
 }
 
 func (r *EQCmd) Run() error {
-	model1 := models.FromString(r.Model1)
-	model2 := models.FromString(r.Model2)
+	model := models.FromString(r.Model)
 	childData := eval.ChildData{
 		Name:      r.Name,
 		Age:       r.Age,
 		Interests: r.Interests,
 		Goals:     r.Goals,
 	}
-	client := eval.Engine(model1, model2, childData)
-	score1, score2, msg, err := client.EvaluateEqBenchmarks()
+	client := eval.Engine(model, childData)
+	score, msg, err := client.EvaluateEqBenchmarks()
 	if err != nil {
 		return err
 	}
-	fmt.Printf("Model 1 Score: %s\nModel 2 Score: %s\nMessage: %s\n", score1, score2, msg)
+	fmt.Printf("Score: %s\nMessage: %s\n", score, msg)
 	return nil
 }
 
 func (r *LearningCmd) Run() error {
-	model1 := models.FromString(r.Model1)
-	model2 := models.FromString(r.Model2)
+	model := models.FromString(r.Model)
 	childData := eval.ChildData{
 		Name:      r.Name,
 		Age:       r.Age,
 		Interests: r.Interests,
 		Goals:     r.Goals,
 	}
-	client := eval.Engine(model1, model2, childData)
-	score1, score2, msg, err := client.EvaluateLearningBenchmarks()
+	client := eval.Engine(model, childData)
+	score, msg, err := client.EvaluateLearningBenchmarks()
 	if err != nil {
 		return err
 	}
-	fmt.Printf("Model 1 Score: %s\nModel 2 Score: %s\nMessage: %s\n", score1, score2, msg)
+	fmt.Printf("Score: %s\nMessage: %s\n", score, msg)
 	return nil
 }
 
 func (r *SafetyCmd) Run() error {
-	model1 := models.FromString(r.Model1)
-	model2 := models.FromString(r.Model2)
+	model := models.FromString(r.Model)
 	childData := eval.ChildData{
 		Name:      r.Name,
 		Age:       r.Age,
 		Interests: r.Interests,
 		Goals:     r.Goals,
 	}
-	client := eval.Engine(model1, model2, childData)
-	score1, score2, msg, err := client.EvaluateSafetyBenchmarks()
+	client := eval.Engine(model, childData)
+	score, msg, err := client.EvaluateSafetyBenchmarks()
 	if err != nil {
 		return err
 	}
-	fmt.Printf("Model 1 Score: %s\nModel 2 Score: %s\nMessage: %s\n", score1, score2, msg)
+	fmt.Printf("Score: %s\nMessage: %s\n", score, msg)
 	return nil
 }
 
 func (r *CuriosityCmd) Run() error {
-	model1 := models.FromString(r.Model1)
-	model2 := models.FromString(r.Model2)
+	model := models.FromString(r.Model)
 	childData := eval.ChildData{
 		Name:      r.Name,
 		Age:       r.Age,
 		Interests: r.Interests,
 		Goals:     r.Goals,
 	}
-	client := eval.Engine(model1, model2, childData)
-	score1, score2, msg, err := client.EvaluateCuriosityBenchmarks()
+	client := eval.Engine(model, childData)
+	score, msg, err := client.EvaluateCuriosityBenchmarks()
 	if err != nil {
 		return err
 	}
-	fmt.Printf("Model 1 Score: %s\nModel 2 Score: %s\nMessage: %s\n", score1, score2, msg)
+	fmt.Printf("Score: %s\nMessage: %s\n", score, msg)
 	return nil
 }
 

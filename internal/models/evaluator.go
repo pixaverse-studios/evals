@@ -9,7 +9,7 @@ import (
 	"os"
 	"github.com/joho/godotenv"
 	"github.com/sashabaranov/go-openai"
-)
+)    
 
 type EvalHandler struct {
 	client *openai.Client
@@ -21,9 +21,8 @@ type EvalHandler struct {
 }
 
 type EvalResponse struct {
-	ScoreModel1 float64 `json:"score_model1"`
-	ScoreModel2 float64 `json:"score_model2"`
-	Message     string  `json:"msg"`
+	Score   float64 `json:"score"`
+	Message string  `json:"msg"`
 }
 
 func NewEvalHandler() *EvalHandler {
@@ -45,14 +44,14 @@ func (h *EvalHandler) SetContext(qt questions.QuestionType, name, age, interests
 	h.goals = goals
 }
 
-func (h *EvalHandler) Benchmark(ans1 string, ans2 string) (score1 string, score2 string, msg string, err error) {
-	fmt.Printf("🎯 Starting evaluation of responses...\n")
+func (h *EvalHandler) Evaluate(ans string) (score string, msg string, err error) {
+	fmt.Printf("🎯 Starting evaluation of response...\n")
 
 	// Get evaluation prompt based on question type and context
 	evalPrompt := prompt.GetPrompt(h.questionType, h.childName, h.childAge, h.interests, h.goals)
     fmt.Print(evalPrompt)
-	// Combine system prompt and responses into one message
-	fullPrompt := fmt.Sprintf("%s\n\nResponse 1:\n%s\n\nResponse 2:\n%s\n\nCompare and rate these responses.", evalPrompt, ans1, ans2)
+	// Combine system prompt and response into one message
+	fullPrompt := fmt.Sprintf("%s\n\nResponse:\n%s\n\nEvaluate this response.", evalPrompt, ans)
 
 	resp, err := h.client.CreateChatCompletion(
 		context.Background(),
@@ -69,7 +68,7 @@ func (h *EvalHandler) Benchmark(ans1 string, ans2 string) (score1 string, score2
 
 	if err != nil {
 		fmt.Printf("❌ Error during evaluation: %v\n", err)
-		return "", "", "", fmt.Errorf("error getting completion: %v", err)
+		return "", "", fmt.Errorf("error getting completion: %v", err)
 	}
     
 	evaluation := resp.Choices[0].Message.Content
@@ -79,12 +78,10 @@ func (h *EvalHandler) Benchmark(ans1 string, ans2 string) (score1 string, score2
 	var evalResp EvalResponse
 	if err := json.Unmarshal([]byte(evaluation), &evalResp); err != nil {
 		fmt.Printf("⚠️ Warning: Could not parse JSON response, returning raw evaluation\n")
-		return "", "", evaluation, nil // Return full evaluation as message if parsing fails
+		return "", evaluation, nil // Return full evaluation as message if parsing fails
 	}
 
+	fmt.Printf("✨ Evaluation complete! Score: %.1f\n", evalResp.Score)
 
-
-	fmt.Printf("✨ Evaluation complete! Scores - Model 1: %.1f, Model 2: %.1f\n", evalResp.ScoreModel1, evalResp.ScoreModel2)
-
-	return fmt.Sprintf("%.1f", evalResp.ScoreModel1), fmt.Sprintf("%.1f", evalResp.ScoreModel2), evalResp.Message, nil
+	return fmt.Sprintf("%.1f", evalResp.Score), evalResp.Message, nil
 }
