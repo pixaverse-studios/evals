@@ -3,11 +3,11 @@ package questions
 type QuestionType int
 
 const (
-	EQ QuestionType = iota // Emotional Intelligence questions
-	IQ                     // Intelligence questions
-	Learning               // Learning-focused questions  
-	Safety                 // Safety-related questions
-	Curiosity              // Curiosity-focused questions
+	EQ QuestionType = iota // 20 questions
+	IQ                     
+	Learning               
+	Safety                 
+	Curiosity              
 )
 
 // String returns the string representation of QuestionType

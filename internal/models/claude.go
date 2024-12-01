@@ -37,7 +37,7 @@ func (h *ClaudeHandler) ProcessQuestions(questions []string) ([]string, error) {
 		resp, err := h.client.CreateMessages(context.Background(), anthropic.MessagesRequest{
 			Model: anthropic.ModelClaude3Dot5Sonnet20241022,//claude-3-5-sonnet-20241022
 			MaxTokens: 300,
-			System: "You are a friendly AI assistant helping children. Keep answers simple, age-appropriate, and encouraging.",
+			System: Prompt(),
 			Messages: []anthropic.Message{
 				anthropic.NewUserTextMessage(question),
 			},

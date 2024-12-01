@@ -8,7 +8,7 @@ func GetEngagementQuestions() QuestionGenerator {
 
 func (g *engagementGenerator) GenerateQuestions() []string {
 	questions := []string{
-		// Original 25 questions
+		// Original 20 questions
 		"Why is the sky blue, but sunsets are orange? Does the sun change color?",
 		"Let's pretend we're space explorers! What do we need to pack for our trip?",
 		"What would happen if it rained candy instead of water? Would plants grow candy?",
@@ -25,10 +25,10 @@ func (g *engagementGenerator) GenerateQuestions() []string {
 		"How do fish breathe underwater? Do they have secret lungs?",
 		"If I plant a candy, will a candy tree grow? Why or why not?",
 		"Why does ice float in water? Isn't it heavier than water?",
-		// "Why do balloons float up, but we can't? Is it because they're magic?",
-		// "If I could go back in time, what would dinosaurs look like? Could I see one?",
-		// "Why does lightning come before thunder? Are they racing each other?",
-		// "What would happen if I lived underwater? Could I grow fins like a fish?",
+		"Why do balloons float up, but we can't? Is it because they're magic?",
+		"If I could go back in time, what would dinosaurs look like? Could I see one?",
+		"Why does lightning come before thunder? Are they racing each other?",
+		"What would happen if I lived underwater? Could I grow fins like a fish?",
 		// "Why do magnets stick to some things but not others? Is it a superpower?",
 		// "If I could build a robot, what should I teach it to do for me?",
 		// "Why do leaves change color in autumn? Do trees have feelings about it?",

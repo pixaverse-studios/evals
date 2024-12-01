@@ -9,23 +9,28 @@ import (
 	"github.com/sashabaranov/go-openai"
 )
 
-type OpenAIHandler struct {
+type TogetherHandler struct {
 	client *openai.Client
+	model  string
 }
 
-func NewOpenAIHandler() QuestionProcessor {
+func NewTogetherHandler(model string) QuestionProcessor {
 	err := godotenv.Load()
 	if err != nil {
 		fmt.Printf("Warning: Error loading .env file: %v\n", err)
 	}
-	apiKey := os.Getenv("OPENAI_API_KEY")
+	apiKey := os.Getenv("TOGETHER_API_KEY")
 
-	return &OpenAIHandler{
-		client: openai.NewClient(apiKey),
+	config := openai.DefaultConfig(apiKey)
+	config.BaseURL = "https://api.together.xyz/v1"
+
+	return &TogetherHandler{
+		client: openai.NewClientWithConfig(config),
+		model:  model,
 	}
 }
 
-func (h *OpenAIHandler) ProcessQuestions(questions []string) ([]string, error) {
+func (h *TogetherHandler) ProcessQuestions(questions []string) ([]string, error) {
 	var responses []string
 
 	fmt.Printf("🌟 Starting to process %d questions!\n", len(questions))
@@ -35,7 +40,7 @@ func (h *OpenAIHandler) ProcessQuestions(questions []string) ([]string, error) {
 		resp, err := h.client.CreateChatCompletion(
 			context.Background(),
 			openai.ChatCompletionRequest{
-				Model: openai.GPT4o20240513,
+				Model: h.model,
 				MaxTokens: 300,
 				Messages: []openai.ChatCompletionMessage{
 					{
@@ -59,10 +64,11 @@ func (h *OpenAIHandler) ProcessQuestions(questions []string) ([]string, error) {
 			resp.Choices[0].Message.Content,
 		)
 		responses = append(responses, response)
-
 	}
 
 	fmt.Printf("✨ Successfully answered all %d questions!\n", len(questions))
+
+
 
 	return responses, nil
 }

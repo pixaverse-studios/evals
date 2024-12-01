@@ -49,7 +49,6 @@ func (h *EvalHandler) Evaluate(ans string) (score string, msg string, err error)
 
 	// Get evaluation prompt based on question type and context
 	evalPrompt := prompt.GetPrompt(h.questionType, h.childName, h.childAge, h.interests, h.goals)
-    fmt.Print(evalPrompt)
 	// Combine system prompt and response into one message
 	fullPrompt := fmt.Sprintf("%s\n\nResponse:\n%s\n\nEvaluate this response.", evalPrompt, ans)
 
@@ -71,10 +70,7 @@ func (h *EvalHandler) Evaluate(ans string) (score string, msg string, err error)
 		return "", "", fmt.Errorf("error getting completion: %v", err)
 	}
     
-	evaluation := resp.Choices[0].Message.Content
-
-	fmt.Print(evaluation)
-	
+	evaluation := resp.Choices[0].Message.Content	
 	var evalResp EvalResponse
 	if err := json.Unmarshal([]byte(evaluation), &evalResp); err != nil {
 		fmt.Printf("⚠️ Warning: Could not parse JSON response, returning raw evaluation\n")
