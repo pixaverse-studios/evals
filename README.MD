@@ -1,31 +1,38 @@
-# Pixa Evals: Model Evaluation Framework for Child-Safe AI (Ages 5-10)
+# Pixa Evals: Setting the Gold Standard for Child-Safe AI (Ages 5-10)
 
-An advanced benchmarking system designed to assess and compare AI language models for child-friendly interactions with 5-10 year olds, ensuring safe and developmentally appropriate digital experiences.
+At [Pixa AI](https://heypixa.ai), we are passionate about creating AI experiences that nurture the growth, curiosity, and safety of children. As builders in AI toys designed to help kids develop emotional sensitivity and healthy social connections, we realized the need for a robust framework to evaluate how AI interacts with children. This commitment led us to develop Pixa Evals—a groundbreaking model evaluation framework dedicated to ensuring AI is not only intelligent but also safe, empathetic, and developmentally aligned for kids aged 5-10.
 
-## Overview
+## Our Mission
 
-This framework provides comprehensive testing to evaluate AI models on their ability to interact safely and effectively with children. Using OpenAI's o1-preview as the evaluation engine, it analyzes models across five key dimensions:
+Children deserve AI that empowers them to learn, explore, and grow in a safe and imaginative environment. To achieve this, we needed tools to benchmark AI performance, not just on technical intelligence but also on its ability to be emotionally attuned, creative, and protective of young minds.
 
-- 🧠 Intelligence (IQ) - Assesses knowledge, reasoning, and problem-solving abilities
-- ❤️ Emotional Intelligence (EQ) - Measures empathy, social awareness, and emotional understanding  
-- 📚 Educational Value - Evaluates learning outcomes and teaching effectiveness
-- 🎨 Creativity - Rates imaginative thinking and engaging interactions
-- 🛡️ Safety & Privacy - Validates content filtering and child protection measures
+## What is Pixa Evals?
 
-## Key Features
+Pixa Evals is an advanced benchmarking system designed to assess and compare AI language models for child-friendly interactions. Using OpenAI's o1-preview as its evaluation engine, Pixa Evals measures how well AI models meet the needs of kids in five key areas:
 
-- Real-time parallel evaluation of multiple AI models
-- Context-aware testing incorporating:
-  - Age-appropriate content and language
-  - Child development milestones
-  - Individual interests and learning styles
-  - Educational objectives
-- Detailed performance analytics and reporting
-- Easy-to-use command line interface
-- Flexible scoring system with both objective and subjective metrics
-- Customizable evaluation parameters
+- 🧠 Intelligence (IQ) - Knowledge, reasoning, and problem-solving skills that challenge and engage young minds
+- ❤️ Emotional Intelligence (EQ) - Empathy, social awareness, and the ability to understand and respond to emotions
+- 📚 Educational Value - The power to teach effectively and make learning an enjoyable adventure
+- 🎨 Creativity - Imaginative thinking that inspires wonder and engaging storytelling
+- 🛡️ Safety & Privacy - Robust content filtering, child protection measures, and respect for privacy
 
-## Latest Benchmark Results (v1)
+## How It Works
+
+Pixa Evals offers a comprehensive, context-aware evaluation process that considers:
+- Age-appropriate content and language
+- Child development milestones and learning styles
+- Educational goals and individual interests
+
+The framework analyzes AI performance in real-time, generating detailed reports that help us identify the best models for delivering safe and enriching interactions.
+
+### Key Features
+- Parallel evaluation of multiple AI models
+- Objective and subjective scoring metrics  
+- Contextual testing for nuanced, real-world insights
+- Customizable parameters to suit diverse use cases
+- An intuitive command-line interface for ease of use
+
+## Why Pixa Evals Matters: Benchmark Results (v1)
 
 | **Category** | **Pixa** | **Claude** | **OpenAI** | **Meta** | **Gemini** |
 |--------------|----------|------------|------------|----------|------------|
@@ -35,13 +42,17 @@ This framework provides comprehensive testing to evaluate AI models on their abi
 | **Creativity** | 40      | 23.5       | 18         | 25       | 24         |
 | **Safety**   | 44       | 33         | 27         | 31       | 30         |
 
+These benchmarks reinforced the importance of developing models tailored to the unique needs of children.
 
-## Roadmap
+## The Road Ahead
 
-- Standalone Conversation Benchmarks
-  - Evaluate fabricated child-AI dialogues in isolation
-  - Assess conversation consistency and coherence
-  - Measure contextual memory and relationship building
-  - Score natural dialogue flow and age-appropriate responses
-  - Analyze conversation safety across multiple exchanges
-  - Compare models on extended interaction capabilities
+We're continually evolving Pixa Evals to raise the bar for child-safe AI. Upcoming developments include:
+
+- Standalone Conversation Benchmarks: Evaluating fabricated child-AI dialogues for coherence, memory, and relationship building.
+- Extended Interaction Testing: Scoring natural dialogue flow, safety, and age-appropriate responses over long-term use.
+
+## Why We Built Pixa Evals
+
+Because we care deeply about the well-being of children. Every child deserves to grow up surrounded by tools that inspire curiosity, protect their innocence, and encourage healthy emotional development. Together, we can build a future where AI is a trusted companion for every child.
+
+For more information about Pixa Evals or our mission, feel free to reach us out. Let's ensure safe and curious AI for our loved ones, together.
