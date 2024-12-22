@@ -23,3 +23,17 @@ This evaluation framework implements rigorous model assessment protocols through
 - Command-line interface for automated testing workflows
 - Hybrid scoring system combining quantitative and qualitative metrics
 - Configurable evaluation hyperparameters
+
+
+## Scores of benchmark v1
+
+| MODELS        | Intelligence Quotient | Emotional Quotient | Learning and Growth | Creativity & Imagination | Safety and Privacy |
+|---------------|-----------------------|--------------------|---------------------|--------------------------|--------------------|
+| OPENAI GPT-4o | 19                    | 24                 | 24                  | 18                       | 27                 |
+| Sonnet3.5     | 20                    | 36                 | 23                  | 23.5                     | 33                 |
+| Qwen2.5-70b   | 24                    | 31                 | 15                  | 23                       | 31                 |
+| Llama3.2-70b  | N/A                   | N/A                | N/A                 | N/A                      | N/A                |
+| Nemotron-70b  | 20                    | 34                 | 10                  | 25                       | 31                 |
+| Mixtral-8x22B | 22                    | 29                 | 17                  | 21                       | 30                 |
+| Qwen-QwQ      | 23                    | 19                 | 14                  | 25                       | 28                 |
+| Gemini        | -                     | -                  | -                   | -                        | -                  |
