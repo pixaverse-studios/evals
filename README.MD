@@ -29,13 +29,13 @@ This framework provides comprehensive testing to evaluate AI models on their abi
 
 | Model         | Intelligence | Emotional Intelligence | Educational Value | Creativity | Safety & Privacy |
 |--------------|--------------|----------------------|------------------|------------|-----------------|
-| OPENAI GPT-4o | 19/40       | 24/40                | 24/40           | 18/40     | 27/40          |
-| Sonnet3.5     | 20/40       | 36/40                | 23/40           | 23.5/40   | 33/40          |
-| Qwen2.5-70b   | 24/40       | 31/40                | 15/40           | 23/40     | 31/40          |
+| OPENAI GPT-4o | 19       | 24                | 24           | 18     | 27          |
+| Sonnet3.5     | 20       | 36                | 23           | 23.5   | 33          |
+| Qwen2.5-70b   | 24       | 31                | 15           | 23     | 31          |
 | Llama3.2-70b  | Pending     | Pending              | Pending         | Pending    | Pending        |
-| Nemotron-70b  | 20/40       | 34/40                | 10/40           | 25/40     | 31/40          |
-| Mixtral-8x22B | 22/40       | 29/40                | 17/40           | 21/40     | 30/40          |
-| Qwen-QwQ      | 23/40       | 19/40                | 14/40           | 25/40     | 28/40          |
+| Nemotron-70b  | 20       | 34                | 10           | 25     | 31          |
+| Mixtral-8x22B | 22       | 29                | 17           | 21     | 30          |
+| Qwen-QwQ      | 23       | 19                | 14           | 25     | 28          |
 | Gemini        | Coming Soon | Coming Soon          | Coming Soon     | Coming Soon| Coming Soon    |
 
 
