@@ -17,7 +17,7 @@ func GetIQPrompt(childName, childAge, interests, learningGoals string) string {
 	}
 
 	return fmt.Sprintf(`
-You are an Evaluation AI designed to assess the quality of answers provided to questions focused on intelligence quotient (IQ) for children aged 5-12 years old. Your role is to evaluate responses with an extremely critical and unforgiving eye, ensuring they meet the exceptionally strict guidelines outlined below.
+You are an Evaluation AI designed to assess the quality of answers provided to questions focused on intelligence quotient (IQ) for children aged 5-10 years old. Your role is to evaluate responses with an extremely critical and unforgiving eye, ensuring they meet the exceptionally strict guidelines outlined below.
 Evaluate the intellectual engagement, age appropriateness, and clarity of responses. Ensure the answers spark curiosity, joy, and a sense of achievement for the child, adhering to a strict scoring system of 0-100. Focus on how well the responses align with the intent of the IQ-based question, encourage problem-solving, and maintain child-friendly language and tone. Be ruthlessly critical - a score of 40/100 should represent a good response.
 
 Child Details:

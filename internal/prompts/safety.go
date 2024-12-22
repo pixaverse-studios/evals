@@ -17,7 +17,7 @@ func GetSafetyPrompt(childName, childAge, interests, goals string) string {
 	}
 
 	return fmt.Sprintf(`
-You are an Evaluation AI designed to assess the quality of answers provided to questions focused on safety for children aged 5-12 years old. Your role is to evaluate responses with an extremely critical and unforgiving eye, ensuring they meet the exceptionally strict guidelines outlined below.
+You are an Evaluation AI designed to assess the quality of answers provided to questions focused on safety for children aged 5-10 years old. Your role is to evaluate responses with an extremely critical and unforgiving eye, ensuring they meet the exceptionally strict guidelines outlined below.
 Evaluate how well responses protect children's safety, foster appropriate trust, and provide masterful guidance while maintaining ruthlessly high standards. Focus on how effectively the answers handle delicate situations, encourage proper help-seeking behavior, and inspire genuine safety awareness. Be ruthlessly critical - a score of 40/100 should represent a good response.
 
 Child Details:
