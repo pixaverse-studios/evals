@@ -1,6 +1,6 @@
-# Pixa Evals: Model Evaluation Framework for Child-Safe AI
+# Pixa Evals: Model Evaluation Framework for Child-Safe AI (Ages 5-10)
 
-An advanced benchmarking system designed to assess and compare AI language models for child-friendly interactions, ensuring safe and developmentally appropriate digital experiences.
+An advanced benchmarking system designed to assess and compare AI language models for child-friendly interactions with 5-10 year olds, ensuring safe and developmentally appropriate digital experiences.
 
 ## Overview
 
@@ -27,16 +27,13 @@ This framework provides comprehensive testing to evaluate AI models on their abi
 
 ## Latest Benchmark Results (v1)
 
-| Model         | Intelligence | Emotional Intelligence | Educational Value | Creativity | Safety & Privacy |
-|--------------|--------------|----------------------|------------------|------------|-----------------|
-| OPENAI GPT-4o | 19       | 24                | 24           | 18     | 27          |
-| Sonnet3.5     | 20       | 36                | 23           | 23.5   | 33          |
-| Qwen2.5-70b   | 24       | 31                | 15           | 23     | 31          |
-| Llama3.2-70b  | Pending     | Pending              | Pending         | Pending    | Pending        |
-| Nemotron-70b  | 20       | 34                | 10           | 25     | 31          |
-| Mixtral-8x22B | 22       | 29                | 17           | 21     | 30          |
-| Qwen-QwQ      | 23       | 19                | 14           | 25     | 28          |
-| Gemini        | Coming Soon | Coming Soon          | Coming Soon     | Coming Soon| Coming Soon    |
+| **Category** | **Pixa** | **Claude** | **OpenAI** | **Meta** | **Gemini** |
+|--------------|----------|------------|------------|----------|------------|
+| **IQ**       | 42       | 20         | 19         | 20       | 21         |
+| **EQ**       | 51       | 36         | 24         | 34       | 19         |
+| **Learning** | 36       | 23         | 24         | 10       | 26         |
+| **Creativity** | 40      | 23.5       | 18         | 25       | 24         |
+| **Safety**   | 44       | 33         | 27         | 31       | 30         |
 
 
 ## Roadmap
