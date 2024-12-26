@@ -62,7 +62,7 @@ We’re continually evolving Pixa Evals to raise the bar for child-safe AI. Our 
 - **Extended Interaction Testing**: Score natural dialogue flow, safety, and age-appropriate responses over long-term use.  
 - **Real-World Testing**: We will begin testing Pixa AI with kids in real-world settings and update results based on these interactions.  
 
-If you wish to learn more about our findings, you can sign up for our mailing list: [https://benchmarks.heypixa.ai/](https://benchmarks.heypixa.ai/)  
+If you wish to learn more about our findings, you can sign up for our mailing list: [https://benchmarks.heypixa.ai/#newsletter](https://benchmarks.heypixa.ai/#newsletter)  
 
 ## Why We Built Pixa Evals
 
