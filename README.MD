@@ -58,8 +58,11 @@ By combining advanced prompting techniques with task-specific fine-tuning, Pixa 
 
 We're continually evolving Pixa Evals to raise the bar for child-safe AI. Upcoming developments include:
 
-- Standalone Conversation Benchmarks: Evaluating fabricated child-AI dialogues for coherence, memory, and relationship building.
-- Extended Interaction Testing: Scoring natural dialogue flow, safety, and age-appropriate responses over long-term use.
+- *Standalone Conversation Benchmarks*: Evaluating fabricated child-AI dialogues for coherence, memory, and relationship building.
+- *Extended Interaction Testing*: Scoring natural dialogue flow, safety, and age-appropriate responses over long-term use.
+- *Real-World Testing*: We will begin testing Pixa AI with kids in real-world settings and update results based on these interactions.
+
+If you wish to learn more about our findings, you can sign up for our mailing list: [https://benchmarks.heypixa.ai/](https://benchmarks.heypixa.ai/)
 
 ## Why We Built Pixa Evals
 
